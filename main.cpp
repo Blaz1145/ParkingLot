@@ -1,11 +1,18 @@
 #include <iostream>
 #include <memory>
 #include "include/Car.h"
+#include "include/ParkingLot.h"
 
-template<class T> //Sablonova funkcia
-T minValue(T a, T b) {
+template<class T1 , class T2> //Sablonova funkcia
+ auto minValue(T1 a, T2 b) {
     return a < b ? a : b;
 }
+
+int minValue(int *a, int *b) {
+    return (*a < *b )? *a : *b;
+}
+
+
 
 int main() {
     std::cout << "Hello world!" << std::endl;
@@ -26,7 +33,21 @@ int main() {
 
     std::cout << "\n Minimal value: " << minValue(10,20) << std::endl;
     std::cout << "\n Minimal value: " << minValue(1.9 ,1.5 ) << std::endl;
+    std::cout << "\n Minimal value: " << minValue(1.9 ,16 ) << std::endl; //float a int a v sablone je vsade T
+
+    int *a = new int(5);
+    int *b = new int(10);
+
+    std::cout << "\n Minimal value z *: " << minValue(a,b) << std::endl;
+
+    ParkingLot<Car> parkoviste;
+    parkoviste.parkACar(pCar2); //zoberiem shared pointer a vlozim ho tam
+
+    parkoviste.parkACar(std::make_shared<Car>("Fiat" , 20));
+
     delete pCar;
+    delete a;
+    delete b;
     return 0;
 }
 
