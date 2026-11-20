@@ -28,6 +28,8 @@ public:
     float getMaxSpeed() const;
     const std::string getName() const; //preco const aj pred?
 
+    Wheel &operator[](const WheelPosition &position); //& predame iba referenciu
+
 
 private:
     float _maxSpeed; //podtrzitko _ oznacena clenska premenna

@@ -20,3 +20,7 @@ const std::string Car::getName() const {
     return _name;
 }
 
+Wheel &Car::operator[](const WheelPosition &position) { //toto dostane na position = FRONT_LEFT a v mape to pouzije
+    return _wheels[position];                           // ako vrati priamo ten najdeny objekt typu Wheel
+}                                                       // a potom v main pomocou .postion prideme k tomu cislu
+
