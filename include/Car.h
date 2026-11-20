@@ -5,9 +5,11 @@
 #define PARKINGLOT_CAR_H
 #include <string>
 
-class Car {
+class Car { //auto znamena automaticky datovy typ
 public:
     Car(const std::string &name, const float &maxSpeed);
+    Car(const Car &car) = delete;
+    auto operator=(const Car &car) = delete;
 
 
 private:

@@ -6,6 +6,8 @@ int main() {
 
     Car car("Peugeot 208" , 300);
 
+    Car car2 = car;
+
     return 0;
 }
 
