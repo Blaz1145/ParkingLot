@@ -6,4 +6,5 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(ParkingLot main.cpp
         src/Car.cpp
         include/Car.h
-        include/ParkingLot.h)
+        include/ParkingLot.h
+        include/pparking_lot_error.h)

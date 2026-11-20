@@ -2,6 +2,7 @@
 #include <memory>
 #include "include/Car.h"
 #include "include/ParkingLot.h"
+#include <stdexcept>
 
 template<class T1 , class T2> //Sablonova funkcia
  auto minValue(T1 a, T2 b) {
@@ -40,10 +41,13 @@ int main() {
 
     std::cout << "\n Minimal value z *: " << minValue(a,b) << std::endl;
 
-    ParkingLot<Car> parkoviste;
-    parkoviste.parkACar(pCar2); //zoberiem shared pointer a vlozim ho tam
-
-    parkoviste.parkACar(std::make_shared<Car>("Fiat" , 20));
+    ParkingLot<Car , 1> parkoviste;
+    try {
+        parkoviste.parkACar(pCar2); //zoberiem shared pointer a vlozim ho tam
+        parkoviste.parkACar(std::make_shared<Car>("Fiat" , 20));
+    } catch(const pparking_lot_error& e) {
+        std::cout << e.what();
+    }
 
     delete pCar;
     delete a;
