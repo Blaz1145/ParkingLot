@@ -5,10 +5,18 @@
 #define PARKINGLOT_CAR_H
 #include <string>
 #include <iostream>
+#include <unordered_map>
 
 struct Wheel {
     float pressure;
     float threadDepth;
+};
+
+enum class WheelPosition {
+    FRONT_LEFT = 0,
+    FRONT_RIGHT,
+    BACK_LEFT,
+    BACK_RIGHT,
 };
 
 class Car { //auto znamena automaticky datovy typ
@@ -24,6 +32,9 @@ public:
 private:
     float _maxSpeed; //podtrzitko _ oznacena clenska premenna
     std::string _name;
+
+    std::unordered_map<WheelPosition , Wheel> _wheels;
+    // chceme namapovat 2 hodnoty do seba < kluc, typ premenej>
 };
 
 
