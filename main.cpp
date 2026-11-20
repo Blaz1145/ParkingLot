@@ -6,7 +6,9 @@ int main() {
 
     Car car("Peugeot 208" , 300);
 
-    Car car2 = car;
+    //Car car2 = car;
+
+    std::cout << "Auto: " << car << std::endl;
 
     return 0;
 }
